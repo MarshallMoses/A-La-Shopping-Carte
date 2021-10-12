@@ -32,7 +32,8 @@
                 <th scope="col">ITEM</th>
                 <th scope="col">$</th>
                 <th scope="col">AMOUNT</th>
-                <th scope="col">TOTAL</th>
+                <th scope="col"></th>
+                <th scope="col">SUBTOTAL</th>
 
               </tr>
 
@@ -44,6 +45,7 @@
                 <td class="item">Salmon</td>
                 <td class="price">60</td>
                 <td class="amount"><input type="number" value="1" /></td>
+                <td><button class="btn btn-light btn-sm remove">remove</button></td>
                 <td class="subTotal"></td>
               </tr>
 
@@ -51,12 +53,13 @@
                 <td class="item">Chicken</td>
                 <td class="price">20</td>
                 <td class="amount"><input type="number" value="1" /></td>
+                <td><button class="btn btn-light btn-sm remove">remove</button></td>
                 <td class="subTotal"></td>
               </tr>
 
               <tr>
-                <td colspan="3"><p class="text-right">Total $ </p></td>
-                <td><span id="total"></span></td>
+                <td colspan="4"><h5 class="text-right">TOTAL</h5></td>
+                <td><h5 id="total"></h5></td>
               </tr>
   
             </tbody>

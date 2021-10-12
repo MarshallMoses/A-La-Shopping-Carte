@@ -4,7 +4,7 @@ var updateSubTotal = function (ele) {
     var amount = parseFloat($(ele).children('.amount').children('input').val());
 
     var subTotal = price * amount;
-    $(ele).children('.subTotal').html(subTotal);
+    $(ele).children('.subTotal').html('$' + subTotal);
     return subTotal;
 
 }
@@ -24,8 +24,16 @@ var updateTotal = function() {
 
     });
 
-    var total = subTotals.reduce(sum);
-    $('#total').html(total);
+    if (subTotals.length === 0) {
+
+        $('#total').html('');
+
+    } else {
+
+        var total = subTotals.reduce(sum);
+        $('#total').html('$' + total);
+
+    }
 
 }
 
@@ -53,11 +61,10 @@ $(document).ready(function () {
           '<td class="item">' + item + '</td>' +
           '<td class="price">' + price + '</td>' +
           '<td class="amount"><input type="number" value="1" /></td>' +
+          '<td><button class="btn btn-light btn-sm remove">remove</button></td>' +
           '<td class="subTotal"></td>' +
     
           '</tr>');
-    
-          console.log("test");
 
         $('.itemRow').each(function (i, ele) {
   
@@ -66,6 +73,9 @@ $(document).ready(function () {
         });
 
         updateTotal();
+
+        $(this).children('[name=item]').val('');
+        $(this).children('[name=price]').val('');
     
     });
   
@@ -88,5 +98,13 @@ $(document).on('input', 'tr input', function () {
     updateTotal();
 
   }, 500);
+
+});
+
+$(document).on('click', '.btn.remove', function (event) {
+
+    $(this).closest('tr').remove();
+
+    updateTotal();
 
 });
