@@ -60,9 +60,9 @@ $(document).ready(function () {
     
           '<td class="item">' + item + '</td>' +
           '<td class="price">' + price + '</td>' +
-          '<td class="amount"><input type="number" value="1" /></td>' +
-          '<td><button class="btn btn-light btn-sm remove">remove</button></td>' +
+          '<td class="amount"><input class="col-5" type="number" value="1" /></td>' +
           '<td class="subTotal"></td>' +
+          '<td class="text-right"><button class="btn btn-danger btn-sm px-3 remove"><i class="fas fa-times"></i></button></td>' +
     
           '</tr>');
 
@@ -91,13 +91,21 @@ $(document).on('input', 'tr input', function () {
 
     $('.itemRow').each(function (i, ele) {
   
-        updateSubTotal(ele);
+        if (updateSubTotal(ele) === 0) {
+
+            $(this).closest('tr').remove();
+
+        } else {
+
+            updateSubTotal(ele);
+
+        }
     
     });
 
     updateTotal();
 
-  }, 500);
+  }, 750);
 
 });
 

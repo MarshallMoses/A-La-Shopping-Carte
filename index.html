@@ -8,75 +8,92 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <script src="https://kit.fontawesome.com/684070d2cb.js" crossorigin="anonymous"></script>
+
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"></script>
     <script src="js/application.js"></script>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="css/custom.css" rel="stylesheet">
   </head>
 
   <body>
     <div class="container">
-      <h3 class="my-4">A La Shopping Carte</h3>
-      <div class="row p-5">
-        <div class="col-12">
-          <table class="table table-responsive">
 
-            <thead>
+      <div class="card d-block">
+        <div class="container">
+          <div class="row">
+            <div class="col-6 px-0">
+              <h3 class="title"><i class="fas fa-shopping-cart"></i></h3>
+            </div>
+            <div class="col-6 text-right px-0">
+              <form id="addItem">
 
-              <tr>
+                <input class="col-4" name="item" type="text" placeholder="Item" required/>
+                <input class="col-4" name="price" type="number" placeholder="Price" required/>
+                <button class="btn btn-primary btn-sm px-3"><i class="fas fa-plus"></i></button>
       
-                <th scope="col">ITEM</th>
-                <th scope="col">$</th>
-                <th scope="col">AMOUNT</th>
-                <th scope="col"></th>
-                <th scope="col">SUBTOTAL</th>
-
-              </tr>
-
-            </thead>
-
-            <tbody>
-  
-              <tr class="itemRow">
-                <td class="item">Salmon</td>
-                <td class="price">60</td>
-                <td class="amount"><input type="number" value="1" /></td>
-                <td><button class="btn btn-light btn-sm remove">remove</button></td>
-                <td class="subTotal"></td>
-              </tr>
-
-              <tr class="itemRow">
-                <td class="item">Chicken</td>
-                <td class="price">20</td>
-                <td class="amount"><input type="number" value="1" /></td>
-                <td><button class="btn btn-light btn-sm remove">remove</button></td>
-                <td class="subTotal"></td>
-              </tr>
-
-              <tr>
-                <td colspan="4"><h5 class="text-right">TOTAL</h5></td>
-                <td><h5 id="total"></h5></td>
-              </tr>
-  
-            </tbody>
-  
-          </table>
-
-          <form class="col-12 mt-2 mb-4" id="addItem">
-
-            <input class="mx-2" name="item" type="text" placeholder="Item" required/>
-            <input class="mx-2" name="price" type="number" placeholder="Price" required/>
-            <button class="btn btn-primary btn-sm">add</button>
-  
-          </form>
-
+              </form>
+            </div>
+          </div>
         </div>
-  
       </div>
+
+      <div class="card d-block">
+        <div class="row">
+          <div class="table-responsive">
+            <table class="table table-borderless mb-0">
+
+              <thead>
+
+                <tr class="border-bottom">
+        
+                  <th class="col-3" scope="col">ITEM</th>
+                  <th class="col-2" scope="col">$</th>
+                  <th class="col-2" scope="col">AMOUNT</th>
+                  <th class="col-3" scope="col">SUBTOTAL</th>
+                  <th class="col-2" scope="col"></th>
+
+                </tr>
+
+              </thead>
+
+              <tbody>
+    
+                <tr class="itemRow">
+                  <td class="item">Shoes</td>
+                  <td class="price">60</td>
+                  <td class="amount"><input class="col-5" type="number" value="1" /></td>
+                  <td class="subTotal"></td>
+                  <td class="text-right"><button class="btn btn-danger btn-sm px-3 remove"><i class="fas fa-times"></i></button></td>
+                </tr>
+
+                <tr class="itemRow">
+                  <td class="item">Socks</td>
+                  <td class="price">20</td>
+                  <td class="amount"><input class="col-5" type="number" value="1" /></td>
+                  <td class="subTotal"></td>
+                  <td class="text-right"><button class="btn btn-danger btn-sm px-3 remove"><i class="fas fa-times"></i></button></td>
+                </tr>
+
+                <tr class="border-top">
+                  <td colspan="3"><h5 class="text-right">TOTAL</h5></td>
+                  <td><h5 id="total"></h5></td>
+                </tr>
+    
+              </tbody>
+    
+            </table>
+
+          </div>
+    
+        </div>
+      </div>
+
+      
     </div>
   </body>
   
