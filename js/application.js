@@ -3,6 +3,7 @@ var updateSubTotal = function (ele) {
     var price = parseFloat($(ele).children('.price').text());
     var amount = parseFloat($(ele).children('.amount').children('input').val());
 
+
     var subTotal = price * amount;
     $(ele).children('.subTotal').html('$' + subTotal);
     return subTotal;
@@ -83,7 +84,7 @@ $(document).ready(function () {
 
 var timeout;
 
-$(document).on('input', 'tr input', function () {
+$(document).on('blur', 'tr input', function () {
 
   clearTimeout(timeout);
 
@@ -91,7 +92,7 @@ $(document).on('input', 'tr input', function () {
 
     $('.itemRow').each(function (i, ele) {
   
-        if (updateSubTotal(ele) === 0) {
+        if (updateSubTotal(ele) === 0 || !updateSubTotal(ele)) {
 
             $(this).closest('tr').remove();
 
@@ -105,7 +106,7 @@ $(document).on('input', 'tr input', function () {
 
     updateTotal();
 
-  }, 750);
+  }, 500);
 
 });
 
